@@ -1,0 +1,19 @@
+<!--#map => referencia global-->
+<div id="map" #map></div>
+
+<!--(click)="flyTo(Marker.markert) => a travez del ngFor estoy llamando a la posicion marker -->
+
+<ul class="list-group">
+  <li *ngFor="let Marker of setMarkers; let i = index;"
+      class="list-group-item"
+      [ngStyle]="{backgroundColor : Marker.color}"
+      (click)="flyTo(Marker.markert)"
+      (dblclick)="deleteMarker(i)">
+    Marker {{ i + 1}}
+  </li>
+</ul>
+
+<button (click)="createMarker()" class="btn btn-primary">
+  Agregar Marcador
+</button>
+

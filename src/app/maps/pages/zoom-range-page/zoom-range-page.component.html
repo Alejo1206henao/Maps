@@ -1,0 +1,23 @@
+<!--#map => referencia global-->
+<div id="map" #map></div>
+
+<div class="floating-range p-2">
+  <div class="floating-content">
+    <button (click)="zoomOut()" class="btn btn-primary"> -</button>
+    <input type="range"
+           class="form-range px-2"
+           min="-2"
+           max="18"
+           [value]="Zoom"
+           #zoomInput
+           (input)="zoomChange(zoomInput.value)">
+    <!--            el #zoomInput => es una referecia para después utilizarla en el input-->
+
+    <button (click)="zoomIn()" class="btn btn-primary"> +</button>
+  </div>
+  <span class="form-label">
+    Zoom: {{Zoom.toPrecision(4)}}
+    <br>
+    Lng,Lat: {{lngLat}}
+  </span>
+</div>
